@@ -14,10 +14,11 @@ public class Client {
 	private String address;
 	private String reason;
 	private String funding;
-	private String availability;
+	private String availableDay;
+	private String availableTime;
 	private String notes;
 	
-	public Client(String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, long phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availability, String notes)
+	public Client(String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, long phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
 	{
 		this.setTimeStamp(timeStamp);
 		this.setFirstName(firstName);
@@ -31,7 +32,8 @@ public class Client {
 		this.address = address;
 		this.reason = reason;
 		this.funding = funding;
-		this.availability = availability;
+		this.availableDay = availableDay;
+		this.availableTime=availableTime;
 		this.notes = notes;
 	}
 
@@ -83,13 +85,7 @@ public class Client {
 		this.funding = funding;
 	}
 
-	public String getAvailability() {
-		return availability;
-	}
-
-	public void setAvailability(String availability) {
-		this.availability = availability;
-	}
+	
 
 	public String getNotes() {
 		return notes;
@@ -121,6 +117,22 @@ public class Client {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getAvailableDay() {
+		return availableDay;
+	}
+
+	public void setAvailableDay(String availableDay) {
+		this.availableDay = availableDay;
+	}
+
+	public String getAvailableTime() {
+		return availableTime;
+	}
+
+	public void setAvailableTime(String availableTime) {
+		this.availableTime = availableTime;
 	}
 
 	public String getBirthDate() {
