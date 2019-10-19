@@ -3,49 +3,43 @@ package com.data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.model.Client;
 import com.model.DTO;
-import com.model.Database;
 
 public class ClientDAO implements ClientDataAccessInterface 
-{
-	private Database db;
-	
+{	
 	@Override
 	public DTO<Client> read(int ID) 
 	{
-		Connection conn = null;
 		DTO<Client> dto = null;
 		Client client = null;
 		
 		try 
 		{	
-			conn = db.open();
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nmtsadb", "root", "root");
 			
-			String sql = "SELECT * FROM nmtsaDB.CLIENT WHERE id = " + ID;
+			String sql = "SELECT * FROM client WHERE id = " + ID;
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			client = new Client(rs.getString("time"), rs.getString("first"), rs.getString("last"), rs.getString("birthday"), 
-					rs.getString("diagnosis"), rs.getInt("phoneNumber"), rs.getString("parentA"), rs.getString("parentB"), rs.getString("email"), 
-					rs.getString("address"), rs.getString("reason"), rs.getString("funding"), rs.getString("availableDay"), rs.getString("availableTime"), 
-					rs.getString("notes"));
+			if (rs.next())
+			{
+				client = new Client(rs.getInt("id"), rs.getString("time"), rs.getString("first"), rs.getString("last"), rs.getString("birthday"), 
+						rs.getString("diagnosis"), rs.getString("phoneNumber"), rs.getString("parentA"), rs.getString("parentB"), rs.getString("email"), 
+						rs.getString("address"), rs.getString("reason"), rs.getString("funding"), rs.getString("availableDay"), rs.getString("availableTime"), 
+						rs.getString("notes"));
+			}
 			
-			dto = new DTO<Client>(rs.getFetchSize(), ((client == null) ? "FAILURE" : "OK"), client);
+			dto = new DTO<Client>(rs.getRow(), ((client == null) ? "FAILURE" : "OK"), client);
+			
+			conn = null;
 		} 
 		catch (Exception e) 
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			if (conn != null)
-			{
-				db.close(conn);
-			}
 		}
 		return dto;
 	}
