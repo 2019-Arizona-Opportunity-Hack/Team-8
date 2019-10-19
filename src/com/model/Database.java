@@ -15,7 +15,8 @@ public class Database
 	{
 		this.username = "root";
 		this.password = "root";
-		this.database = "nmtsaDB";
+		this.database = "nmtsadb";
+		this.url = "jdbc:mysql://localhost:3306/" + this.database;
 	}
 	
 	public Connection open()
@@ -23,7 +24,6 @@ public class Database
 		Connection conn = null;
 		try 
 		{
-			this.url = "jdbc:mysql://3306/nmtsaDB";
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn = DriverManager.getConnection(this.url, this.username, this.password);
 		} 
