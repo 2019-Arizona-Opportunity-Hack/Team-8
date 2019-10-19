@@ -84,6 +84,23 @@ public class Client {
 
 	}
 
+	public String getTimeStamp() { return timeStamp; }
+	public String getFirstName() { return firstName; }
+	public String getLastName() { return lastName; }
+	public String getBirthDate() { return birthDate; }
+	public String getDiagnosis() { return diagnosis; }
+	public String getPhoneNumber() { return phoneNumber; }
+	public String getParent1() { return parent1; }
+	public String getParent2() { return parent2; }
+	public String getEmail() { return email; }
+	public String getAddress() { return address; }
+	public String getReason() { return reason; }
+	public String getFunding() { return funding; }
+	public String getAvailableDay() { return availableDay; }
+	public String getAvailableTime() { return availableTime; }
+	public String getNotes() { return notes; }
+	public int getID() { return ID; }
+
 	public String toString()
 	{
 		return "Client ID: " + ID + "\nName: " + firstName + " " + lastName + "\nTime of entry: " + timeStamp + "\nBirth Date: " + birthDate + "\nDiagnosis: " +  diagnosis + "\nPhone Number: " +  phoneNumber + "\nParent 1: " +  parent1 + "\nParent 2: " + parent2 + "\nEmail Address: " + email + "\nReason: " +  reason + "\nFunding Source: " +  funding + "\nAvailability: " + availableDay + " " + availableTime + "\nNotes: " +  notes + "\n";
