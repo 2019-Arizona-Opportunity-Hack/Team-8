@@ -3,7 +3,7 @@ package com.data;
 import com.model.Client;
 import com.model.DTO;
 
-public interface ClientDataAcessInterface 
+public interface ClientDataAccessInterface 
 {
 	public DTO<Client> read(int ID);
 	public DTO<Client> create(Client client);
