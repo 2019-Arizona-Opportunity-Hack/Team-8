@@ -23,7 +23,7 @@ public class Database
 		Connection conn = null;
 		try 
 		{
-			this.url = "jdbc:mysql://3306/" + this.database;
+			this.url = "jdbc:mysql://3306/nmtsaDB";
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn = DriverManager.getConnection(this.url, this.username, this.password);
 		} 
