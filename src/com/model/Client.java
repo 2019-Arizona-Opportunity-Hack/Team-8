@@ -1,5 +1,15 @@
 package com.model;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Client {
 
 	private String timeStamp;
@@ -7,7 +17,7 @@ public class Client {
 	private String lastName;
 	private String birthDate;
 	private String diagnosis;
-	private long phoneNumber;
+	private String phoneNumber;
 	private String parent1;
 	private String parent2;
 	private String email;
@@ -17,146 +27,68 @@ public class Client {
 	private String availableDay;
 	private String availableTime;
 	private String notes;
-	
-	public Client(String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, long phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
+	private int ID;
+
+	public void reader() throws FileNotFoundException
 	{
-		this.setTimeStamp(timeStamp);
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
-		this.setBirthDate(birthDate);
-		this.setDiagnosis(diagnosis);
-		this.setPhoneNumber(phoneNumber);
-		this.parent1 = parent1;
-		this.parent2 = parent2;
-		this.email = email;
-		this.address = address;
-		this.reason = reason;
-		this.funding = funding;
-		this.availableDay = availableDay;
-		this.availableTime=availableTime;
-		this.notes = notes;
+		int ID = 0;
+		ArrayList<Client> people = new ArrayList<Client>();
+		BufferedReader csvReader = new BufferedReader(new FileReader("C:\\Users\\ericw\\Downloads\\MOCK_DATA (2).csv"));
+		String row;
+		try {
+			while ((row = csvReader.readLine()) != null) {
+			    String[] data = row.split(",");
+			    Client person = new Client(ID+1, data[0], data[1], data[2], data[3], data[4], data[5],data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14]);
+			    people.add(person);
+			    ID++;
+
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			csvReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		toString(people);
+
 	}
 
-	public String getParent1() {
-		return parent1;
-	}
-
-	public void setParent1(String parent1) {
-		this.parent1 = parent1;
-	}
-
-	public String getParent2() {
-		return parent2;
-	}
-
-	public void setParent2(String parent2) {
-		this.parent2 = parent2;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getReason() {
-		return reason;
-	}
-
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-	public String getFunding() {
-		return funding;
-	}
-
-	public void setFunding(String funding) {
-		this.funding = funding;
-	}
-
-	
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-
-	public String getTimeStamp() {
-		return timeStamp;
-	}
-
-	public void setTimeStamp(String timeStamp) {
+	public Client(int ID, String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, String phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
+	{
 		this.timeStamp = timeStamp;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getAvailableDay() {
-		return availableDay;
-	}
-
-	public void setAvailableDay(String availableDay) {
-		this.availableDay = availableDay;
-	}
-
-	public String getAvailableTime() {
-		return availableTime;
-	}
-
-	public void setAvailableTime(String availableTime) {
-		this.availableTime = availableTime;
-	}
-
-	public String getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
-	}
-
-	public String getDiagnosis() {
-		return diagnosis;
-	}
-
-	public void setDiagnosis(String diagnosis) {
 		this.diagnosis = diagnosis;
-	}
-
-	public long getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
+		this.parent1 = parent1;
+		this.parent2 = parent2;
+		this.email = email;
+		this.address = address;
+		this.reason = reason;
+		this.funding = funding;
+		this.availableDay = availableDay;
+		this.availableTime = availableTime;
+		this.notes = notes;
+		this.ID = ID;
 	}
+
+	public static void toString(ArrayList<Client> people)
+	{
+		for(int i = 0; i < people.size();i++)
+		{
+			System.out.println(people.get(i));
+		}
+
+	}
+
+	public String toString()
+	{
+		return "Client ID: " + ID + "\nName: " + firstName + " " + lastName + "\nTime of entry: " + timeStamp + "\nBirth Date: " + birthDate + "\nDiagnosis: " +  diagnosis + "\nPhone Number: " +  phoneNumber + "\nParent 1: " +  parent1 + "\nParent 2: " + parent2 + "\nEmail Address: " + email + "\nReason: " +  reason + "\nFunding Source: " +  funding + "\nAvailability: " + availableDay + " " + availableTime + "\nNotes: " +  notes + "\n";
+	}
+
+
 
 }
