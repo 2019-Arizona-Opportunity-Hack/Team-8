@@ -10,7 +10,7 @@ import com.model.Client;
 import com.model.DTO;
 import com.model.Database;
 
-public class ClientDAO implements ClientDataAcessInterface 
+public class ClientDAO implements ClientDataAccessInterface 
 {
 	private Database db;
 	
@@ -29,12 +29,12 @@ public class ClientDAO implements ClientDataAcessInterface
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			client = new Client(rs.getString(""), rs.getString(""), rs.getString(""), rs.getString(""), 
-					rs.getString(""), rs.getInt(""), rs.getString(""), rs.getString(""), rs.getString(""), 
-					rs.getString(""), rs.getString(""), rs.getString(""), rs.getString(""), rs.getString(""), 
-					rs.getString(""));
+			client = new Client(rs.getString("time"), rs.getString("first"), rs.getString("last"), rs.getString("birthday"), 
+					rs.getString("diagnosis"), rs.getInt("phoneNumber"), rs.getString("parentA"), rs.getString("parentB"), rs.getString("email"), 
+					rs.getString("address"), rs.getString("reason"), rs.getString("funding"), rs.getString("availableDay"), rs.getString("availableTime"), 
+					rs.getString("notes"));
 			
-			dto = new DTO<Client>(rs.getFetchSize(), "", client);
+			dto = new DTO<Client>(rs.getFetchSize(), ((client == null) ? "FAILURE" : "OK"), client);
 		} 
 		catch (Exception e) 
 		{
