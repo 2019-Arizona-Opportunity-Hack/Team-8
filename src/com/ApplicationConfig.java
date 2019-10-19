@@ -7,12 +7,19 @@ import org.springframework.context.annotation.ScopedProxyMode;
 
 import com.business.ClientBusinessInterface;
 import com.business.ClientBusinessService;
+import com.controller.ClientController;
 import com.data.ClientDAO;
 import com.data.ClientDataAccessInterface;
 
 @Configuration
 public class ApplicationConfig 
 {
+	@Bean(name="clientController")
+	public ClientController getClientController()
+	{
+		return new ClientController();
+	}
+	
 	@Bean(name="clientService", initMethod="init", destroyMethod="destroy")
 	@Scope(value="request", proxyMode=ScopedProxyMode.TARGET_CLASS)
 	public ClientBusinessInterface getService()
