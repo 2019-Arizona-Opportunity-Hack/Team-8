@@ -19,51 +19,32 @@ import com.model.DTO;
 public class ClientController 
 {
 	ClientBusinessInterface clientService;
-	/*private String timeStamp;
-	private String firstName;
-	private String lastName;
-	private String birthDate;
-	private String diagnosis;
-	private long phoneNumber;
-	private String parent1;
-	private String parent2;
-	private String email;
-	private String address;
-	private String reason;
-	private String funding;
-	private String availableDay;
-	private String availableTime;
-	private String notes; */
-	@Autowired
-	ClientBusinessInterface service;
-	
-	
-	@RequestMapping(path="/do", method=RequestMethod.GET)
-	public ModelAndView displayForm() {
+		
+	@RequestMapping(path="/referral", method=RequestMethod.GET)
+	public ModelAndView displayForm() 
+	{
 		return new ModelAndView("ReferralForm", "client", new Client());
 	}
 	
-	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
-	public ModelAndView tryReg(@Valid @ModelAttribute("client")Client c, BindingResult result) {
-		System.out.println("Made it to the try registration method in controller");
-		System.out.println(c.toString());
-		String msg;
-		if(result.hasErrors()) {
-			msg="validation failed";
-			return new ModelAndView("ReferralForm","client",c);
+	@RequestMapping(path = "/reg", method =RequestMethod.POST) 
+	public ModelAndView tryReg(@Valid @ModelAttribute("client")Client client, BindingResult result) 
+	{
+		if(result.hasErrors()) 
+		{
+			return new ModelAndView("ReferralForm","client",client);
 		}
-		//Do Business Request
-		if(service.register(c)!=null) {
-			msg="registration all good";
-			return new ModelAndView("Results","client", c);
+		if(clientService.register(client)!=null) 
+		{
+			return new ModelAndView("Results","client", client);
 		}
-		msg="something happened";
+		
+		String msg = "Error Occurred";
 		return new ModelAndView("Error","msg",msg);
-		
-		
-		
-		
 	}
 	
-	
+	@Autowired
+	public void setService(ClientBusinessInterface clientService)
+	{
+		this.clientService = clientService;
+	}
 }

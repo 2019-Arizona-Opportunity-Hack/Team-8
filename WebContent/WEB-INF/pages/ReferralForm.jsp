@@ -6,7 +6,7 @@
 	<p class="text-center"><br>In order to better understand your therapy and scheduling needs, please fill out the following information. Should you have further questions, please feel free to contact us at <a href="mailto:info@nmtsa.org">info@nmtsa.org</a>. <br><br></p>
 
 	
-	<form:form method="POST" modelAttribute="client" action="doReg">
+	<form:form method="POST" modelAttribute="client" action="reg">
 	<div style="margin-right: 49%;">
 	<table>
 	<tr>
