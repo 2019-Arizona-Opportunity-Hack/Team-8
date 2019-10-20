@@ -18,6 +18,7 @@ import com.model.DTO;
 @RequestMapping("/client")
 public class ClientController 
 {
+	@Autowired
 	ClientBusinessInterface clientService;
 	/*private String timeStamp;
 	private String firstName;
@@ -34,13 +35,13 @@ public class ClientController
 	private String availableDay;
 	private String availableTime;
 	private String notes; */
-	@Autowired
-	ClientBusinessInterface service;
 	
 	
 	@RequestMapping(path="/do", method=RequestMethod.GET)
 	public ModelAndView displayForm() {
+
 		return new ModelAndView("ReferralForm", "client", new Client(0, "","","","","","","","","","","","","","",""));
+
 	}
 	
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
