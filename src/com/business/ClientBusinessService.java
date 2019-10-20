@@ -1,5 +1,7 @@
 package com.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.data.ClientDataAccessInterface;
@@ -15,6 +17,13 @@ public class ClientBusinessService implements ClientBusinessInterface
 	{
 		DTO<Client> cDTO = clientDAO.read(ID);
 		return null;
+	}
+	
+	@Override
+	public List<Client> findAll()
+	{
+		List<Client> clients = clientDAO.readAll().getData();
+		return clients;
 	}
 
 	@Override
@@ -47,6 +56,13 @@ public class ClientBusinessService implements ClientBusinessInterface
 	{
 		clientDAO.delete(ID);
 		return null;
+	}
+	
+	@Override
+	public List<Client> search(String query) 
+	{
+		List<Client> results = clientDAO.search(query).getData();
+		return results;
 	}
 	
 	@Override

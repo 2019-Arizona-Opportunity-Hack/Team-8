@@ -1,6 +1,9 @@
 
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,39 @@ public class ClientController
 		
 		String msg = "Error Occurred";
 		return new ModelAndView("Error","msg",msg);
+	}
+	
+	@RequestMapping(path = "/appointments", method = RequestMethod.GET)
+	public ModelAndView showAppointments()
+	{
+		return new ModelAndView("ShowAllClients", "client", new Client());
+	}
+	
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public ModelAndView showAllClients()
+	{
+		List<Client> clients = clientService.findAll();
+		
+		ModelAndView mv = new ModelAndView("ShowAllClients", "clients", clients);
+		Client query = new Client();
+		
+		mv.addObject("query", query);
+		
+		return mv;
+	}
+	
+	@RequestMapping(path = "/genSearch", method = RequestMethod.POST)
+	public ModelAndView generalSearch(@ModelAttribute("query")Client query)
+	{
+		List<Client> results = new ArrayList<>();
+		results = clientService.search(query.getNotes());
+		
+		ModelAndView mv = new ModelAndView("ShowAllClients", "clients", results);
+		query = new Client();
+		
+		mv.addObject("query", query);
+		
+		return mv;
 	}
 	
 	@Autowired

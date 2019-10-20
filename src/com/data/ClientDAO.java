@@ -59,6 +59,49 @@ public class ClientDAO implements ClientDataAccessInterface
 	}
 
 	@Override
+	public DTO<List> readAll() 
+	{
+		Connection conn = null;
+		DTO<List> dto = null;
+		List<Client> clients = new ArrayList<>();
+		
+		try
+		{
+			conn = db.open();
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM client");
+			
+			int rowCount = 0;
+			while(rs.next())
+			{
+				rowCount++;
+				
+				clients.add(new Client(rs.getInt("ID"), rs.getString("time"), rs.getString("first"), 
+						rs.getString("last"), rs.getString("birthday"), rs.getString("diagnosis"), 
+						rs.getString("phoneNumber"), rs.getString("parentA"), rs.getString("parentB"),
+						rs.getString("email"), rs.getString("address"), rs.getString("reason"),
+						rs.getString("funding"), rs.getString("availableDay"), rs.getString("availableTime"),
+						rs.getString("notes")
+						));
+			}
+			
+			dto = new DTO<List>(rowCount, ((rowCount > 0) ? "OK" : "FAILURE"), clients);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			db.close(conn);
+		}
+		
+		return dto;
+	}
+
+	
+	@Override
 	public DTO<Client> create(Client client) 
 	{
 		Connection conn = null;
@@ -201,11 +244,11 @@ public class ClientDAO implements ClientDataAccessInterface
 		{
 			conn = db.open();
 			
-			String sql = "SELECT * FROM `client` WHERE `time` = " + query + " OR `first` = " + query
-					+ " OR `last` = " + query + " OR `birthday` = " + query + " OR `phoneNumber` = " + query 
-					+ " OR `diagnosis` = " + query + " OR `parentA` = " + query + " OR `parentB` = " + query
-					+ " OR `email` = " + query + " OR `address` = " + query + " OR `reason` = " + query 
-					+ " OR `funding` = " + query + " OR `availableDay` = " + query + " OR `availableTime` = " + query;
+			String sql = "SELECT * FROM `client` WHERE `time` = '" + query + "' OR `first` = '" + query
+					+ "' OR `last` = '" + query + "' OR `birthday` = '" + query + "' OR `phoneNumber` = '" + query 
+					+ "' OR `diagnosis` = '" + query + "' OR `parentA` = '" + query + "' OR `parentB` = '" + query
+					+ "' OR `email` = '" + query + "' OR `address` = '" + query + "' OR `reason` = '" + query 
+					+ "' OR `funding` = '" + query + "' OR `availableDay` = '" + query + "' OR `availableTime` = '" + query + "'";
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
@@ -241,5 +284,4 @@ public class ClientDAO implements ClientDataAccessInterface
 
 	@Override
 	public void destroy() {}
-
 }
