@@ -6,7 +6,7 @@ import com.model.DTO;
 public interface ClientBusinessInterface 
 {
 	public DTO<Client> find(int ID);
-	public DTO<Client> register(Client client);
+	public Client register(Client client);
 	public DTO<Client> edit(Client client);
 	public DTO<Client> remove(int ID);
 	

@@ -13,21 +13,32 @@ public class ClientBusinessService implements ClientBusinessInterface
 	@Override
 	public DTO<Client> find(int ID) 
 	{
-		clientDAO.read(ID);
+		DTO<Client> cDTO = clientDAO.read(ID);
 		return null;
 	}
 
 	@Override
-	public DTO<Client> register(Client client) 
+	public Client register(Client client) 
 	{
-		clientDAO.create(client);
-		return null;
+		DTO<Client> cDTO = clientDAO.create(client);
+		if(cDTO.getErrorCode() == 0)
+		{
+			System.out.println("No rows were created");
+			return null;
+		}else if(cDTO.getErrorCode()==1) {
+			System.out.println("Rows were changed");
+			return client;
+		}else {
+			System.out.println("ERROR: more than one row was created somehow");
+			return null;
+		}
+		
 	}
 
 	@Override
 	public DTO<Client> edit(Client client) 
 	{
-		clientDAO.update(client);
+		DTO<Client> cDTO = clientDAO.update(client);
 		return null;
 	}
 
