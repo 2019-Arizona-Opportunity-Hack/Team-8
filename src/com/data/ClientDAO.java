@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.model.Client;
 import com.model.DTO;
@@ -191,6 +193,52 @@ public class ClientDAO implements ClientDataAccessInterface
 		return null;
 	}
 
+	@Override
+	public DTO<List> search(String query)
+	{
+		Connection conn = null;
+		List<Client> results = new ArrayList<>();
+		DTO<List> dto = null;
+		
+		try
+		{
+			conn = db.open();
+			
+			String sql = "SELECT * FROM `client` WHERE `time` = " + query + " OR `first` = " + query
+					+ " OR `last` = " + query + " OR `birthday` = " + query + " OR `phoneNumber` = " + query 
+					+ " OR `diagnosis` = " + query + " OR `parentA` = " + query + " OR `parentB` = " + query
+					+ " OR `email` = " + query + " OR `address` = " + query + " OR `reason` = " + query 
+					+ " OR `funding` = " + query + " OR `availableDay` = " + query + " OR `availableTime` = " + query;
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			int rowCount = 0;
+			while (rs.next())
+			{
+				rowCount++;
+				Client client = new Client(rs.getInt("id"), rs.getString("time"), rs.getString("first"), rs.getString("last"), rs.getString("birthday"), 
+						rs.getString("diagnosis"), rs.getString("phoneNumber"), rs.getString("parentA"), rs.getString("parentB"), rs.getString("email"), 
+						rs.getString("address"), rs.getString("reason"), rs.getString("funding"), rs.getString("availableDay"), rs.getString("availableTime"), 
+						rs.getString("notes"));
+				
+				results.add(client);
+			}
+			
+			dto = new DTO<List>(rowCount, ((rowCount != 0) ? "OK" : "FAILURE"), results);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			db.close(conn);
+		}
+		
+		return dto;
+	}
+	
 	@Override
 	public void init() {}
 
