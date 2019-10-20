@@ -13,6 +13,7 @@ public interface ClientDataAccessInterface
 	public DTO<Client> update(Client client);
 	public DTO<Client> delete(int ID);
 	public DTO<List> search(String query);
+	public DTO<List> searchByTime(String query);
 	
 	public void init();
 	public void destroy();
