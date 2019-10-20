@@ -7,11 +7,10 @@
 		<br>In order to better understand your therapy and scheduling
 		needs, please fill out the following information. Should you have
 		further questions, please feel free to contact us at <a
-			href="mailto:info@nmtsa.org">info@nmtsa.org</a>. <br>
-		<br>
+			href="mailto:info@nmtsa.org">info@nmtsa.org</a>. <br> <br>
 	</p>
 
-	<div class="form-group" style="width:70%">
+	<div class="form-group" style="width: 70%">
 		<form:form method="POST" modelAttribute="client" action="reg">
 			<div class="form-row">
 				<div class="col">
@@ -38,21 +37,30 @@
 				</div>
 			</div>
 			<div class="form-row">
-			<div class="col">
-				<form:label style="font: 18px Roboto, sans-serif;" path="birthDate">Birth Date:</form:label>
-				<form:input class="form-control" path="birthDate" />
-				<form:errors path="birthDate" />
-			</div>
-			<div class="col">
-				<form:label style="font: 18px Roboto, sans-serif;" path="phoneNumber">Phone Number:</form:label>
-				<form:input class="form-control" path="phoneNumber" />
-				<form:errors path="phoneNumber" />
-			</div>
+				<div class="col">
+					<form:label style="font: 18px Roboto, sans-serif;" path="birthDate">Birth Date:</form:label>
+					<form:input class="form-control" path="birthDate" />
+					<form:errors path="birthDate" />
+				</div>
+				<div class="col">
+					<form:label style="font: 18px Roboto, sans-serif;"
+						path="phoneNumber">Phone Number:</form:label>
+					<form:input class="form-control" path="phoneNumber" />
+					<form:errors path="phoneNumber" />
+				</div>
 			</div>
 			<div class="form-row">
 				<div class="col">
 					<form:label style="font: 18px Roboto, sans-serif;" path="diagnosis">Diagnosis:</form:label>
-					<form:checkboxes class="checkbox" path="diagnosis" items="${diagnosisList}" />
+					<div class="btn-group">
+					<c:forEach var="item" items="${diagnosisList}">
+
+						<form:checkbox class="checkbox" path="diagnosis" value="${item}"></form:checkbox>
+						<form:label style="font: 18px Roboto, sans-serif;"
+							path="diagnosis">${item}</form:label>
+
+					</c:forEach>
+					</div>
 				</div>
 			</div>
 			<div class="form-row">
@@ -81,33 +89,42 @@
 			</div>
 			<div class="form-row">
 				<div class="col">
-			<div style="padding:20px;margin-top:10px;">
-			<form:label style="font: 18px Roboto, sans-serif;" path="availableDay">Days Available:</form:label>
-			<c:forEach var="item" items="${availableDay}">
+					<div class="btn-group">
+						<form:label style="font: 18px Roboto, sans-serif;"
+							path="availableDay">Days Available:</form:label>
+						<c:forEach var="item" items="${availableDay}">
 
-				<form:checkbox class="checkbox" path="availableDay" value="${item}"></form:checkbox>
-				<form:label style="font: 18px Roboto, sans-serif;" path="availableDay">${item}</form:label>
+							<form:checkbox class="checkbox" path="availableDay"
+								value="${item}"></form:checkbox>
+							<form:label style="font: 18px Roboto, sans-serif;"
+								path="availableDay">${item}</form:label>
 
-			</c:forEach>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
-			</div></div>
 			<%-- <form:checkboxes  path="availableDay" items="${availableDay}" /></td> --%>
 			<div class="form-row">
 				<div class="col">
-			<form:label style="font: 18px Roboto, sans-serif;" path="availableTime">Time slots Available:</form:label>
-			<c:forEach var="item" items="${availableTime}">
+					<form:label style="font: 18px Roboto, sans-serif;"
+						path="availableTime">Time slots Available:</form:label>
+					<c:forEach var="item" items="${availableTime}">
 
-				<form:checkbox class="checkbox" path="availableDay" value="${item}"></form:checkbox>
-				<form:label style="font: 18px Roboto, sans-serif;" path="availableTime">${item}</form:label>
+						<form:checkbox class="checkbox" path="availableDay"
+							value="${item}"></form:checkbox>
+						<form:label style="font: 18px Roboto, sans-serif;"
+							path="availableTime">${item}</form:label>
 
-			</c:forEach>
-			</div></div>
+					</c:forEach>
+				</div>
+			</div>
 			<div class="form-row">
 				<div class="col">
-			<form:label style="font: 18px Roboto, sans-serif;" path="notes">Additional Notes:</form:label>
-			<form:textarea id="msg" path="notes" />
-			<form:errors path="notes" />
-			</div></div>
+					<form:label style="font: 18px Roboto, sans-serif;" path="notes">Additional Notes:</form:label>
+					<form:textarea id="msg" path="notes" />
+					<form:errors path="notes" />
+				</div>
+			</div>
 
 			<input type="submit" class="btn btn-primary" value="Create Referral" />
 
