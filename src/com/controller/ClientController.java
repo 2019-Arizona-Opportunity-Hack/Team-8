@@ -18,7 +18,6 @@ import com.model.DTO;
 @RequestMapping("/client")
 public class ClientController 
 {
-	@Autowired
 	ClientBusinessInterface clientService;
 	/*private String timeStamp;
 	private String firstName;
@@ -35,21 +34,23 @@ public class ClientController
 	private String availableDay;
 	private String availableTime;
 	private String notes; */
+	@Autowired
+	ClientBusinessInterface service;
 	
 	
 	@RequestMapping(path="/do", method=RequestMethod.GET)
 	public ModelAndView displayForm() {
-
 		return new ModelAndView("ReferralForm", "client", new Client(0, "","","","","","","","","","","","","","",""));
-
 	}
 	
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
-	public ModelAndView showUser(@Valid @ModelAttribute("client")Client c, BindingResult result) {
+	public ModelAndView tryReg(@Valid @ModelAttribute("client")Client c, BindingResult result) {
 		if(result.hasErrors()) 
 			return new ModelAndView("ReferralForm","client",c);
 		//Do Business Request
-		
+		if(service.register(c)!=null) {
+			
+		}
 		//success
 		
 		return new ModelAndView("Results");
