@@ -40,7 +40,7 @@ public class ClientController
 	
 	@RequestMapping(path="/do", method=RequestMethod.GET)
 	public ModelAndView displayForm() {
-		return new ModelAndView("ReferralForm", "client", new Client(0, "","","","","","","","","","","","","","",""));
+		return new ModelAndView("ReferralForm", "client", new Client());
 	}
 	
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
