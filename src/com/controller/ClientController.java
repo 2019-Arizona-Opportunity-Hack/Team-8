@@ -46,6 +46,7 @@ public class ClientController
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
 	public ModelAndView tryReg(@Valid @ModelAttribute("client")Client c, BindingResult result) {
 		System.out.println("Made it to the try registration method in controller");
+		System.out.println(c.toString());
 		String msg;
 		if(result.hasErrors()) {
 			msg="validation failed";
