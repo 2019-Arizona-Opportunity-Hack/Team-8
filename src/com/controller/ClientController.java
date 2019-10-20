@@ -26,6 +26,8 @@ public class ClientController
 	@RequestMapping(path="/referral", method=RequestMethod.GET)
 	public ModelAndView displayForm() 
 	{
+		Client c = new Client();
+		
 		return new ModelAndView("ReferralForm", "client", new Client());
 	}
 	
@@ -83,4 +85,56 @@ public class ClientController
 	{
 		this.clientService = clientService;
 	}
+	//checkboxes
+	 @ModelAttribute("diagnosisList")
+	   public List<String> getWebFrameworkList() {
+	      List<String> diagnosisList = new ArrayList<String>();
+	      diagnosisList.add("ADHD");
+	      diagnosisList.add("Asperger's Syndrome");
+	      diagnosisList.add("Autism");
+	      diagnosisList.add("Cerebral Palsy");
+	      diagnosisList.add("Down Syndrome");
+	      diagnosisList.add("PDD");
+	      diagnosisList.add("Parkingson's Disease");
+	      diagnosisList.add("Stroke");
+	      diagnosisList.add("Traumatic Brain Injury");
+	      return diagnosisList;
+	   }
+	 @ModelAttribute("availableDay")
+	   public List<String> getAvailableDay() {
+	      List<String> diagnosisList = new ArrayList<String>();
+	      diagnosisList.add("Mon");
+	      diagnosisList.add("Teus");
+	      diagnosisList.add("Wed");
+	      diagnosisList.add("Thur");
+	      diagnosisList.add("Fri");
+	      
+	      return diagnosisList;
+	   }
+	 @ModelAttribute("availableTime")
+	   public List<String> getAvailableTime() {
+	      List<String> diagnosisList = new ArrayList<String>();
+	      diagnosisList.add("8:30-9:00");
+	      diagnosisList.add("9:00-9:30");
+	      diagnosisList.add("9:30-10:00");
+	      diagnosisList.add("10:00-10:30");
+	      diagnosisList.add("10:30-11:00");
+	      diagnosisList.add("11:00-11:30");
+	      diagnosisList.add("11:30-12:00");
+	      diagnosisList.add("12:00-12:30");
+	      diagnosisList.add("12:30-1:00");
+	      diagnosisList.add("1:00-1:30");
+	      diagnosisList.add("1:30-2:00");
+	      diagnosisList.add("2:00-2:30");
+	      diagnosisList.add("2:30-3:00");
+	      diagnosisList.add("3:00-3:30");
+	      diagnosisList.add("3:30-4:00");
+	      diagnosisList.add("3:00-3:30");
+	      diagnosisList.add("3:30-4:00");
+	      diagnosisList.add("4:00-4:30");
+	      diagnosisList.add("4:30-5:00");
+	      diagnosisList.add("5:00-5:30");
+	      diagnosisList.add("5:30-6:00");
+	      return diagnosisList;
+	   }
 }

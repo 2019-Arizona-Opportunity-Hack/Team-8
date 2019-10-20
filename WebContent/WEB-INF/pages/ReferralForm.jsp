@@ -31,7 +31,7 @@
 	</tr>
 		<tr>
 		<td><form:label path="diagnosis">Diagnosis:</form:label></td>
-		<td><form:input path="diagnosis"/><form:errors path="diagnosis"/></td>
+		<td><form:checkboxes path="diagnosis" items="${diagnosisList}" /> </td>
 	</tr>
 	<tr>
 		<td><form:label path="email">Email Address:</form:label></td>
@@ -55,11 +55,11 @@
 	</tr>
 	<tr>
 		<td><form:label path="availableDay">Days Available:</form:label></td>
-		<td><form:input path="availableDay"/><form:errors path="availableDay"/></td>
+		<td><form:checkboxes path="availableDay" items="${availableDay}" /></td>
 	</tr>
 	<tr>
 		<td><form:label path="availableTime">Time slots Available:</form:label></td>
-		<td><form:input path="availableTime"/><form:errors path="availableTime"/></td>
+		<td><form:checkboxes path="availableTime" items="${availableTime}" /></td>
 	</tr>
 	<tr>
 		<td><form:label path="notes">Additional Notes:</form:label></td>
