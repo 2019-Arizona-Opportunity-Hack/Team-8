@@ -21,11 +21,11 @@ public class ClientBusinessService implements ClientBusinessInterface
 	public Client register(Client client) 
 	{
 		DTO<Client> cDTO = clientDAO.create(client);
-		if(cDTO.getErrorCode() == 0)
+		if(cDTO.getRowCount() == 0)
 		{
 			System.out.println("No rows were created");
 			return null;
-		}else if(cDTO.getErrorCode()==1) {
+		}else if(cDTO.getRowCount()==1) {
 			System.out.println("Rows were changed");
 			return client;
 		}else {

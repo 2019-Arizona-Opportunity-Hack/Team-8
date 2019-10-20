@@ -7,23 +7,23 @@ package com.model;
  */
 public class DTO<T> 
 {
-	private int errorCode;
-	private String errorMsg;
+	private int rowCount;
+	private String message;
 	private T data;
 	
-	public DTO(int errorCode, String errorMsg, T data) 
+	public DTO(int rowCount, String message, T data) 
 	{
-		this.errorCode = errorCode;
-		this.errorMsg = errorMsg;
+		this.rowCount = rowCount;
+		this.message = message;
 		this.data = data;
 	}
 
-	public int getErrorCode() { return errorCode; }
-	public String getErrorMsg() { return errorMsg; }
+	public int getRowCount() { return rowCount; }
+	public String getMessage() { return message; }
 	public T getData() { return data; }
 
-	public void setErrorCode(int errorCode) { this.errorCode = errorCode; }
-	public void setErrorMsg(String errorMsg) { this.errorMsg = errorMsg; }
+	public void setRowCount(int rowCount) { this.rowCount = rowCount; }
+	public void setMessage(String message) { this.message = message; }
 	public void setData(T data) { this.data = data; }
 	
 	
