@@ -91,10 +91,7 @@ public class ClientDAO implements ClientDataAccessInterface
 			sql.setString(14, client.getAvailableTime());
 			sql.setString(15, client.getNotes());
 			
-			ResultSet rs = sql.executeQuery();
-			
-			int rowCount = 0;
-			while(rs.next()) { rowCount++; }
+			int rowCount = sql.executeUpdate();
 			
 			dto = new DTO<Client>(rowCount, ((rowCount != 0) ? "OK" : "FAILURE"), client);
 		}
