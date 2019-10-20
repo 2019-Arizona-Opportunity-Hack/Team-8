@@ -110,12 +110,84 @@ public class ClientDAO implements ClientDataAccessInterface
 	@Override
 	public DTO<Client> update(Client client) 
 	{	
-		return null;
+		Connection conn = null;
+		DTO<Client> dto = null;
+		
+		try
+		{
+			conn = db.open();
+			
+			PreparedStatement sql = conn.prepareStatement(
+					"UPDATE client SET `time` = '?', `first` = '?', `last` = '?', `birthday` = '?',"
+					+ "`phoneNumber` = '?', `diagnosis` = '?', `parentA` = '?', `parentB` = '?', `email` = '?',"
+					+ "`address` = '?', `reason` = '?', `funding` = '?', `availableDay` = '?', `availableTime` = '?',"
+					+ "`notes` = '?' WHERE `client`.`id` = '?'"
+					);
+			
+			sql.setString(1, client.getTimeStamp());
+			sql.setString(2, client.getFirstName());
+			sql.setString(3, client.getLastName());
+			sql.setString(4, client.getBirthDate());
+			sql.setString(5, client.getPhoneNumber());
+			sql.setString(6, client.getDiagnosis());
+			sql.setString(7, client.getParent1());
+			sql.setString(8, client.getParent2());
+			sql.setString(9, client.getEmail());
+			sql.setString(10, client.getAddress());
+			sql.setString(11, client.getReason());
+			sql.setString(12, client.getFunding());
+			sql.setString(13, client.getAvailableDay());
+			sql.setString(14, client.getAvailableTime());
+			sql.setString(15, client.getNotes());
+			sql.setInt(16, client.getID());
+			
+			ResultSet rs = sql.executeQuery();
+			
+			int rowCount = 0;
+			while (rs.next()) { rowCount++; }
+			
+			dto = new DTO<Client>(rowCount, ((rowCount != 0) ? "OK" : "FAILURE"), client);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			db.close(conn);
+		}
+		return dto;
 	}
 
 	@Override
 	public DTO<Client> delete(int ID) 
 	{
+		Connection conn = null;
+		DTO<Client> dto = null;
+		
+		try
+		{
+			conn = db.open();
+			
+			PreparedStatement sql = conn.prepareStatement("DELETE FROM `client`	WHERE `client`.`id` = '?'");
+			
+			sql.setInt(1, ID);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			int rowCount = 0;
+			while (rs.next()) { rowCount++; }
+			
+			dto = new DTO<Client>(rowCount, ((rowCount != 0) ? "OK" : "FAILURE"), new Client());
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			db.close(conn);
+		}
 		return null;
 	}
 
