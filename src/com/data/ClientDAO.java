@@ -72,7 +72,7 @@ public class ClientDAO implements ClientDataAccessInterface
 					"INSERT INTO `client` (`id`, `time`, `first`, `last`, `birthday`, "
 					+ "`phoneNumber`, `diagnosis`, `parentA`, `parentB`, `email`, "
 					+ "`address`, `reason`, `funding`, `availableDay`, `availableTime`, `notes`) VALUES "
-					+ "(NULL, '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?')"
+					+ "(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 					);
 			
 			sql.setString(1, client.getTimeStamp());
