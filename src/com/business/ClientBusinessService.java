@@ -22,4 +22,28 @@ public class ClientBusinessService implements ClientBusinessInterface
 		this.clientDAO = clientDAO;
 	}
 
+	@Override
+	public DTO<Client> find(int ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DTO<Client> register(Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DTO<Client> edit(Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DTO<Client> remove(int ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

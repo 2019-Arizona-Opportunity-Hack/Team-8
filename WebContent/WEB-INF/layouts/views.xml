@@ -4,7 +4,7 @@
 <tiles-definitions>
  
 	<definition name="ReferralForm" extends="DefaultTemplate">
-    	<put-attribute name="body" value="/WEB-INF/pages/Calculator.jsp" />
+    	<put-attribute name="body" value="/WEB-INF/pages/ReferralForm.jsp" />
 	</definition>
 	<definition name="Results" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/Results.jsp" />

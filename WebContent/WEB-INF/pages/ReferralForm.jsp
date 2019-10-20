@@ -18,7 +18,7 @@
 		<td><form:input path="lastName"/><form:errors path="lastName"/></td>
 	</tr>
 	<tr>
-		<td><form:label path="birthDate">Last name:</form:label></td>
+		<td><form:label path="birthDate">Birth date:</form:label></td>
 		<td><form:input path="birthDate"/><form:errors path="birthDate"/></td>
 	</tr>
 		<tr>
@@ -36,6 +36,10 @@
 	<tr>
 		<td><form:label path="email">Email Address:</form:label></td>
 		<td><form:input path="email"/><form:errors path="email"/></td>
+	</tr>
+	<tr>
+		<td><form:label path="phoneNumber">Phone Number:</form:label></td>
+		<td><form:input path="phoneNumber"/><form:errors path="phoneNumber"/></td>
 	</tr>
 	<tr>
 		<td><form:label path="address">Home Address:</form:label></td>

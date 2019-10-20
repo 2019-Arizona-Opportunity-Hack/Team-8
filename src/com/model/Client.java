@@ -16,8 +16,6 @@ import javax.validation.constraints.Size;
 public class Client {
 
 	private String timeStamp;
-	@NotNull
-	@Size(min=1,max=30)
 	private String firstName;
 	private String lastName;
 	private String birthDate;
@@ -34,7 +32,8 @@ public class Client {
 	private String notes;
 	private int ID;
 
-	public Client(int ID, String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, String phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
+	public Client(int ID, String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, String phoneNumber, 
+			String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
 	{
 		this.timeStamp = timeStamp;
 		this.firstName = firstName;

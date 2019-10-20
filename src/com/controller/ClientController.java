@@ -45,16 +45,22 @@ public class ClientController
 	
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
 	public ModelAndView tryReg(@Valid @ModelAttribute("client")Client c, BindingResult result) {
-		if(result.hasErrors()) 
+		System.out.println("Made it to the try registration method in controller");
+		String msg;
+		if(result.hasErrors()) {
+			msg="validation failed";
 			return new ModelAndView("ReferralForm","client",c);
+		}
 		//Do Business Request
 		if(service.register(c)!=null) {
-			
+			msg="registration all good";
+			return new ModelAndView("Results","client", c);
 		}
-		//success
+		msg="something happened";
+		return new ModelAndView("Error","msg",msg);
 		
-		return new ModelAndView("Results");
-		//failure
+		
+		
 		
 	}
 	

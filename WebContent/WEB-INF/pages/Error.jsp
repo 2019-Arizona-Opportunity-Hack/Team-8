@@ -1,7 +1,7 @@
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<h1>There was an error with the calculation, are you trying to break my calculator?</h1>
+<h1>There was an issue trying to register a new client. </h1>
 <a href="do" >Try Again</a>
 
 
