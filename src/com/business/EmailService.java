@@ -24,7 +24,7 @@ public class EmailService {
     private static String EMAIL_TEXT = "";
 
 
-public static boolean sendEmail(Client c)
+public boolean sendEmail(Client c)
 {
 	String email=c.getEmail();
 	EMAIL_TEXT = "Hello " + c.getFirstName() + " " + c.getLastName() + ", "+ "Thank you for registering for NMTSA!\nYour information has been successfully added.\n\n\nNeurologic Music Therapy Services of Arizona\n2702 N 3rd Street, Suite 1000\nPhoenix, AZ 85004\ninfo@nmtsa.org\nPhone  |  (602) 840-6410\nFax  |  (602) 840-6431";

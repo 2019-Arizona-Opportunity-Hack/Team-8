@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.business.ClientBusinessInterface;
+import com.business.EmailService;
 import com.model.Client;
 import com.model.DTO;
 
@@ -41,6 +42,9 @@ public class ClientController
 		}
 		if(clientService.register(client)!=null) 
 		{
+			EmailService email = new EmailService();
+			client.setEmail("ericwaters2019@gmail.com");
+			email.sendEmail(client);
 			return new ModelAndView("Results","client", client);
 		}
 		
