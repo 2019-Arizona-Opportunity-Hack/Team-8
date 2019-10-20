@@ -5,10 +5,10 @@ import com.model.DTO;
 
 public interface ClientBusinessInterface 
 {
-	public DTO<Client> read(int ID);
-	public DTO<Client> create(Client client);
-	public DTO<Client> update(Client client);
-	public DTO<Client> delete(int ID);
+	public DTO<Client> find(int ID);
+	public DTO<Client> register(Client client);
+	public DTO<Client> edit(Client client);
+	public DTO<Client> remove(int ID);
 	
 	public void init();
 	public void destroy();

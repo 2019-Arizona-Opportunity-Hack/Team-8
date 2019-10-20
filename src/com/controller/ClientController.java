@@ -40,7 +40,7 @@ public class ClientController
 	
 	@RequestMapping(path="/do", method=RequestMethod.GET)
 	public ModelAndView displayForm() {
-		return new ModelAndView("ReferralForm", "client", new Client(0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
+		return new ModelAndView("ReferralForm", "client", new Client(0, "","","","","","","","","","","","","","",""));
 	}
 	
 	@RequestMapping(path = "/doReg", method =RequestMethod.POST) 
@@ -48,7 +48,9 @@ public class ClientController
 		if(result.hasErrors()) 
 			return new ModelAndView("ReferralForm","client",c);
 		//Do Business Request
+		
 		//success
+		
 		return new ModelAndView("Results");
 		//failure
 		
