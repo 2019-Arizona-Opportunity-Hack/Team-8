@@ -10,7 +10,7 @@
 			href="mailto:info@nmtsa.org">info@nmtsa.org</a>. <br> <br>
 	</p>
 
-	<div class="form-group" style="width: 70%">
+	<div class="form-group" style="width: 60%">
 		<form:form method="POST" modelAttribute="client" action="reg">
 			<div class="form-row">
 				<div class="col">
