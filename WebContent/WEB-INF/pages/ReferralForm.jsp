@@ -51,22 +51,12 @@
 			</div>
 			<div class="form-row">
 				<div class="col">
-<<<<<<< HEAD
-					<form:label style="font: 18px Roboto, sans-serif;" path="diagnosis">Diagnosis:</form:label></br>
+
+					<form:label style="font: 18px Roboto, sans-serif;" path="diagnosis">Diagnosis:</form:label>
+					</br>
 					<form:checkboxes class="checkbox" path="diagnosis"
 						items="${diagnosisList}" />
-=======
-					<form:label style="font: 18px Roboto, sans-serif;" path="diagnosis">Diagnosis:</form:label>
-					<div class="btn-group">
-					<c:forEach var="item" items="${diagnosisList}">
 
-						<form:checkbox class="checkbox" path="diagnosis" value="${item}"></form:checkbox>
-						<form:label style="font: 18px Roboto, sans-serif;"
-							path="diagnosis">${item}</form:label>
-
-					</c:forEach>
-					</div>
->>>>>>> c37c0fa61645f69db5467c978882526f5677b999
 				</div>
 			</div>
 			<div class="form-row">
@@ -95,45 +85,23 @@
 			</div>
 			<div class="form-row">
 				<div class="col">
-<<<<<<< HEAD
-					<form:label style="font: 18px Roboto, sans-serif;" path="availableDay">Days Available:</form:label></br>
-					<form:checkboxes class="checkbox" path="diagnosis"
+					<form:label style="font: 18px Roboto, sans-serif;"
+						path="availableDay">Days Available:</form:label>
+					</br>
+					<form:checkboxes class="checkbox" path="availableDay"
 						items="${availableDay}" />
-=======
-					<div class="btn-group">
-						<form:label style="font: 18px Roboto, sans-serif;"
-							path="availableDay">Days Available:</form:label>
-						<c:forEach var="item" items="${availableDay}">
-
-							<form:checkbox class="checkbox" path="availableDay"
-								value="${item}"></form:checkbox>
-							<form:label style="font: 18px Roboto, sans-serif;"
-								path="availableDay">${item}</form:label>
-
-						</c:forEach>
-					</div>
->>>>>>> c37c0fa61645f69db5467c978882526f5677b999
 				</div>
 			</div>
 			<%-- <form:checkboxes  path="availableDay" items="${availableDay}" /></td> --%>
 			<div class="form-row">
 				<div class="col">
-<<<<<<< HEAD
-					<form:label style="font: 18px Roboto, sans-serif;" path="availableTime">Times Available:</form:label></br>
+
+					<form:label style="font: 18px Roboto, sans-serif;"
+						path="availableTime">Times Available:</form:label>
+					</br>
 					<form:checkboxes class="checkbox" path="availableTime"
 						items="${availableTime}" />
-=======
-					<form:label style="font: 18px Roboto, sans-serif;"
-						path="availableTime">Time slots Available:</form:label>
-					<c:forEach var="item" items="${availableTime}">
 
-						<form:checkbox class="checkbox" path="availableDay"
-							value="${item}"></form:checkbox>
-						<form:label style="font: 18px Roboto, sans-serif;"
-							path="availableTime">${item}</form:label>
-
-					</c:forEach>
->>>>>>> c37c0fa61645f69db5467c978882526f5677b999
 				</div>
 			</div>
 			<div class="form-row">
