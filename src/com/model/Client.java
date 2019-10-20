@@ -125,6 +125,70 @@ public class Client {
 	public String getNotes() { return notes; }
 	public int getID() { return ID; }
 
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setParent1(String parent1) {
+		this.parent1 = parent1;
+	}
+
+	public void setParent2(String parent2) {
+		this.parent2 = parent2;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public void setFunding(String funding) {
+		this.funding = funding;
+	}
+
+	public void setAvailableDay(String availableDay) {
+		this.availableDay = availableDay;
+	}
+
+	public void setAvailableTime(String availableTime) {
+		this.availableTime = availableTime;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
 	public String toString()
 	{
 		return "Client ID: " + ID + "\nName: " + firstName + " " + lastName + "\nTime of entry: " + timeStamp + "\nBirth Date: " + birthDate + "\nDiagnosis: " +  diagnosis + "\nPhone Number: " +  phoneNumber + "\nParent 1: " +  parent1 + "\nParent 2: " + parent2 + "\nEmail Address: " + email + "\nReason: " +  reason + "\nFunding Source: " +  funding + "\nAvailability: " + availableDay + " " + availableTime + "\nNotes: " +  notes + "\n";
