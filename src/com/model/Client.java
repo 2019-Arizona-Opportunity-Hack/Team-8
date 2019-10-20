@@ -29,6 +29,46 @@ public class Client {
 	private String notes;
 	private int ID;
 
+	public Client(int ID, String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, String phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
+	{
+		this.timeStamp = timeStamp;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthDate = birthDate;
+		this.diagnosis = diagnosis;
+		this.phoneNumber = phoneNumber;
+		this.parent1 = parent1;
+		this.parent2 = parent2;
+		this.email = email;
+		this.address = address;
+		this.reason = reason;
+		this.funding = funding;
+		this.availableDay = availableDay;
+		this.availableTime = availableTime;
+		this.notes = notes;
+		this.ID = ID;
+	}
+	
+	public Client()
+	{
+		this.timeStamp = "";
+		this.firstName = "";
+		this.lastName = "";
+		this.birthDate = "";
+		this.diagnosis = "";
+		this.phoneNumber = "";
+		this.parent1 = "";
+		this.parent2 = "";
+		this.email = "";
+		this.address = "";
+		this.reason = "";
+		this.funding = "";
+		this.availableDay = "";
+		this.availableTime = "";
+		this.notes = "";
+		this.ID = 0;
+	}
+	
 	public void reader() throws FileNotFoundException
 	{
 		int ID = 0;
@@ -53,26 +93,6 @@ public class Client {
 		}
 		toString(people);
 
-	}
-
-	public Client(int ID, String timeStamp, String firstName, String lastName, String birthDate, String diagnosis, String phoneNumber, String parent1, String parent2, String email, String address, String reason, String funding, String availableDay, String availableTime, String notes)
-	{
-		this.timeStamp = timeStamp;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.birthDate = birthDate;
-		this.diagnosis = diagnosis;
-		this.phoneNumber = phoneNumber;
-		this.parent1 = parent1;
-		this.parent2 = parent2;
-		this.email = email;
-		this.address = address;
-		this.reason = reason;
-		this.funding = funding;
-		this.availableDay = availableDay;
-		this.availableTime = availableTime;
-		this.notes = notes;
-		this.ID = ID;
 	}
 
 	public static void toString(ArrayList<Client> people)
