@@ -92,7 +92,7 @@
 						items="${availableDay}" />
 				</div>
 			</div>
-			<%-- <form:checkboxes  path="availableDay" items="${availableDay}" /></td> --%>
+			
 			<div class="form-row">
 				<div class="col">
 
