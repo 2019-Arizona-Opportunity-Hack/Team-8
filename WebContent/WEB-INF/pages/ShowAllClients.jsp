@@ -30,7 +30,6 @@
 	
 	<c:forEach var="clients" items="${clients}">
 		<tr>
-			<th scope="row">${clients.ID}</th>
 			<td>${clients.timeStamp}</td>
 			<td>${clients.firstName}</td>
 			<td>${clients.lastName}</td>
