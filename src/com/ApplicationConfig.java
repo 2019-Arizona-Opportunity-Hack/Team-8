@@ -7,9 +7,13 @@ import org.springframework.context.annotation.ScopedProxyMode;
 
 import com.business.ClientBusinessInterface;
 import com.business.ClientBusinessService;
+import com.business.UserBusinessInterface;
+import com.business.UserBusinessService;
 import com.controller.ClientController;
 import com.data.ClientDAO;
 import com.data.ClientDataAccessInterface;
+import com.data.UserDAO;
+import com.data.UserDataAccessInterface;
 
 @Configuration
 public class ApplicationConfig 
@@ -32,6 +36,20 @@ public class ApplicationConfig
 	public ClientDataAccessInterface getDataService()
 	{
 		return new ClientDAO();
+	}
+	
+	@Bean(name="userService", initMethod="init", destroyMethod="destroy")
+	@Scope(value="request", proxyMode=ScopedProxyMode.TARGET_CLASS)
+	public UserBusinessInterface getUserService()
+	{
+		return new UserBusinessService();
+	}
+	
+	@Bean(name="adminDAO", initMethod="init", destroyMethod="destroy")
+	@Scope(value="request", proxyMode=ScopedProxyMode.TARGET_CLASS)
+	public UserDataAccessInterface getUserDataService()
+	{
+		return new UserDAO();
 	}
 }
 
