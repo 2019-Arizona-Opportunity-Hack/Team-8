@@ -50,10 +50,6 @@
 		<td><form:input path="reason"/><form:errors path="reason"/></td>
 	</tr>
 	<tr>
-		<td><form:label path="email">Email Address:</form:label></td>
-		<td><form:input path="email"/><form:errors path="email"/></td>
-	</tr>
-	<tr>
 		<td><form:label path="funding">Funding Source:</form:label></td>
 		<td><form:input path="funding"/><form:errors path="funding"/></td>
 	</tr>
