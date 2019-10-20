@@ -6,28 +6,41 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Client {
+	
 	private String timeStamp;
+	@NotNull(message="Cannot be empty")
 	private String firstName;
+	@NotNull(message="Cannot be empty")
 	private String lastName;
+	@NotNull(message="Cannot be empty")
 	private String birthDate;
+	@NotNull(message="Cannot be empty")
 	private String diagnosis;
+	@NotNull(message="Cannot be empty")
 	private String phoneNumber;
+	@NotNull(message="Cannot be empty")
 	private String parent1;
+	@NotNull(message="Cannot be empty")
 	private String parent2;
+	@NotNull(message="Cannot be empty")
 	private String email;
+	@NotNull(message="Cannot be empty")
 	private String address;
+	@NotNull(message="Cannot be empty")
 	private String reason;
+	@NotNull(message="Cannot be empty")
 	private String funding;
+	@NotNull(message="Cannot be empty")
 	private String availableDay; 
+	@NotNull(message="Cannot be empty")
 	private String availableTime;
+	@NotNull(message="Cannot be empty")
 	private String notes;
 	private int ID;
 	

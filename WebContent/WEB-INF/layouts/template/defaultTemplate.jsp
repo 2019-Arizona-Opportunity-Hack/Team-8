@@ -11,9 +11,7 @@
 	<spring:url value="/resources/bootstrap/css/bootstrap.css" var="bootstrapCss"/>
 	<spring:url value="/resources/bootstrap/js/bootstrap.js" var="bootstrapJs" />
 	
-	<link href="${mainCss}" rel="stylesheet" />
-	<script src="${mainJs}"></script>
-	
+	 
 	<link href="${bootstrapCss}" rel="stylesheet" />
 	<script src="${bootstrapJs}"></script>
 </head>

@@ -58,9 +58,9 @@
 		<td><form:label path="availableDay">Days Available:</form:label></td>
 		<td>
 		<c:forEach var="item" items="${availableDay}">
-		<div class="weekDays-selector">
+		
 		 <form:checkbox class="weekday" path="availableDay" value="${item}"></form:checkbox><form:label path="availableDay">${item}</form:label>
-		 </div>
+		
 		</c:forEach>
 		<%-- <form:checkboxes  path="availableDay" items="${availableDay}" /></td> --%>
 		
@@ -75,7 +75,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-		<input type="submit" value="Run"/>
+		<input type="submit" class="btn btn-default" value="Create Referral"/>
 		</td>
 	</tr>
 	</table>

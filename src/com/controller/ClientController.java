@@ -36,6 +36,7 @@ public class ClientController
 	{
 		if(result.hasErrors()) 
 		{
+			System.out.println("Form had validation errors");
 			return new ModelAndView("ReferralForm","client",client);
 		}
 		if(clientService.register(client)!=null) 
