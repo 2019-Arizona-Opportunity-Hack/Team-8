@@ -1,6 +1,6 @@
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <body>
 	<h1 class="text-center">NMTSA Refferal</h1>
 	<p class="text-center"><br>In order to better understand your therapy and scheduling needs, please fill out the following information. Should you have further questions, please feel free to contact us at <a href="mailto:info@nmtsa.org">info@nmtsa.org</a>. <br><br></p>
@@ -54,8 +54,16 @@
 		<td><form:input path="funding"/><form:errors path="funding"/></td>
 	</tr>
 	<tr>
+		
 		<td><form:label path="availableDay">Days Available:</form:label></td>
-		<td><form:checkboxes path="availableDay" items="${availableDay}" /></td>
+		<td>
+		<c:forEach var="item" items="${availableDay}">
+		<div class="weekDays-selector">
+		 <form:checkbox class="weekday" path="availableDay" value="${item}"></form:checkbox><form:label path="availableDay">${item}</form:label>
+		 </div>
+		</c:forEach>
+		<%-- <form:checkboxes  path="availableDay" items="${availableDay}" /></td> --%>
+		
 	</tr>
 	<tr>
 		<td><form:label path="availableTime">Time slots Available:</form:label></td>

@@ -103,11 +103,11 @@ public class ClientController
 	 @ModelAttribute("availableDay")
 	   public List<String> getAvailableDay() {
 	      List<String> diagnosisList = new ArrayList<String>();
-	      diagnosisList.add("Mon");
-	      diagnosisList.add("Teus");
-	      diagnosisList.add("Wed");
-	      diagnosisList.add("Thur");
-	      diagnosisList.add("Fri");
+	      diagnosisList.add("M");
+	      diagnosisList.add("T");
+	      diagnosisList.add("W");
+	      diagnosisList.add("T");
+	      diagnosisList.add("F");
 	      
 	      return diagnosisList;
 	   }
