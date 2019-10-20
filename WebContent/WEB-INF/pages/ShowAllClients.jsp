@@ -9,6 +9,11 @@
 	<input class="btn btn-secondary" type="submit" value="Search"/>
 </form:form>
 
+<form:form method="POST" modelAttribute="query" action="available">
+	<form:input path="notes" placeholder="Enter a Time"/>
+	<input class="btn btn-secondary" type="submit" value="Search"/>
+</form:form>
+
 <table class="table table-striped table-bordered table-hover table-sm table-dark">
 	<tr>
 		<th>Time Applied</th>

@@ -66,6 +66,13 @@ public class ClientBusinessService implements ClientBusinessInterface
 	}
 	
 	@Override
+	public List<Client> searchByTime(String query)
+	{
+		List<Client> results = clientDAO.searchByTime(query).getData();
+		return results;
+	}
+	
+	@Override
 	public void init() {}
 
 	@Override

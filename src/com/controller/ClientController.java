@@ -81,6 +81,41 @@ public class ClientController
 		return mv;
 	}
 	
+	@RequestMapping(path = "/available", method = RequestMethod.POST)
+	public ModelAndView availableSearch(@ModelAttribute("query")Client query)
+	{
+		List<Client> results = new ArrayList<>();
+		
+		String time = query.getNotes();
+		switch(time.toLowerCase())
+		{
+		case "monday":
+			time = "Mon";
+			break;
+		case "tuesday":
+			time = "Tues";
+			break;
+		case "wednesday":
+			time = "Wed";
+			break;
+		case "thursday":
+			time = "Thur";
+			break;			
+		case "friday":
+			time = "Fri";
+			break;
+		}
+		
+		results = clientService.searchByTime(time);
+		
+		ModelAndView mv = new ModelAndView("ShowAllClients", "clients", results);
+		query = new Client();
+		
+		mv.addObject("query", query);
+		
+		return mv;
+	}
+	
 	@Autowired
 	public void setService(ClientBusinessInterface clientService)
 	{
@@ -104,11 +139,11 @@ public class ClientController
 	 @ModelAttribute("availableDay")
 	   public List<String> getAvailableDay() {
 	      List<String> diagnosisList = new ArrayList<String>();
-	      diagnosisList.add("M");
-	      diagnosisList.add("T");
-	      diagnosisList.add("W");
-	      diagnosisList.add("T");
-	      diagnosisList.add("F");
+	      diagnosisList.add("Monday");
+	      diagnosisList.add("Tuesday");
+	      diagnosisList.add("Wednesday");
+	      diagnosisList.add("Thursday");
+	      diagnosisList.add("Friday");
 	      
 	      return diagnosisList;
 	   }

@@ -13,6 +13,7 @@ public interface ClientBusinessInterface
 	public DTO<Client> edit(Client client);
 	public DTO<Client> remove(int ID);
 	public List<Client> search(String query);
+	public List<Client> searchByTime(String query);
 	
 	public void init();
 	public void destroy();
