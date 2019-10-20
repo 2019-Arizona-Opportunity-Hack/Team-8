@@ -72,7 +72,7 @@ public class ClientDAO implements ClientDataAccessInterface
 					"INSERT INTO `client` (`id`, `time`, `first`, `last`, `birthday`, "
 					+ "`phoneNumber`, `diagnosis`, `parentA`, `parentB`, `email`, "
 					+ "`address`, `reason`, `funding`, `availableDay`, `availableTime`, `notes`) VALUES "
-					+ "(NULL, '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?')"
+					+ "(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 					);
 			
 			sql.setString(1, client.getTimeStamp());
@@ -91,10 +91,7 @@ public class ClientDAO implements ClientDataAccessInterface
 			sql.setString(14, client.getAvailableTime());
 			sql.setString(15, client.getNotes());
 			
-			ResultSet rs = sql.executeQuery();
-			
-			int rowCount = 0;
-			while(rs.next()) { rowCount++; }
+			int rowCount = sql.executeUpdate();
 			
 			dto = new DTO<Client>(rowCount, ((rowCount != 0) ? "OK" : "FAILURE"), client);
 		}
