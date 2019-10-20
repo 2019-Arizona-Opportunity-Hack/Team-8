@@ -11,7 +11,7 @@
 		<br>
 	</p>
 
-	<div class="form-group">
+	<div class="form-group" style="width:70%">
 		<form:form method="POST" modelAttribute="client" action="reg">
 			<div class="form-row">
 				<div class="col">
